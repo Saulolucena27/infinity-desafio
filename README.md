@@ -18,3 +18,4 @@ Sistema de controle de estoque desenvolvido em Python com MySQL.
 - Python 3.x
 - MySQL Server
 - mysql-connector-python
+
