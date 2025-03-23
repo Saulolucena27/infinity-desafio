@@ -32,4 +32,8 @@ venv/
 ENV/
 
 # Logs
-*.log 
+*.log
+
+# Arquivos de configuração
+config.py
+.env 

@@ -1,17 +1,17 @@
 import mysql.connector
+from config import DB_CONFIG
  
 class BancoDeDados:
     def __init__(self):
-        self.conexao = mysql.connector.connect(
-            host="localhost",
-            port=3307,
-            user="root",
-            password="root",
-            database="infinity-desafio"
-        )
-        self.cursor = self.conexao.cursor()
-        print("Conexão com o banco foi estabelecida com sucesso!")
-        self.criar_tabelas()
+        try:
+            self.conexao = mysql.connector.connect(**DB_CONFIG)
+            self.cursor = self.conexao.cursor()
+            print("Conexão com o banco foi estabelecida com sucesso!")
+            self.criar_tabelas()
+        except mysql.connector.Error as erro:
+            print(f"Erro ao conectar ao banco de dados: {erro}")
+            print("CREATE DATABASE IF NOT EXISTS `infinity-desafio`;")
+            exit(1)
  
     def criar_tabelas(self):
         comando_criar_produtos = """
